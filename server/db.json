@@ -3,9 +3,9 @@
     {
       "id": 2,
       "name": "Granville Taplin",
-      "email": "gtaplin1@vk.com",
+      "email": "gtaplin1@vk.org",
       "address": "274 Jenna Center",
-      "active": false
+      "active": true
     },
     {
       "id": 3,
