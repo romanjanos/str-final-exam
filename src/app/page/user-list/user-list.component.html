@@ -1,3 +1,15 @@
+<div class="card">
+  <div class="card-header card-header-info">
+      <div class="d-flex p-2 mb-3">
+          <input [(ngModel)]="filterPhrase" class="form-control" type="text"
+              placeholder="Keresés...">
+          <input [(ngModel)]="filterKey" class="form-control mr-3 px-3">
+      </div>
+  </div>
+</div>
+
+
+
 <div class="row">
   <div class="col-12 mt-2">
     <h2>User List</h2>
@@ -13,7 +25,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let user of users$ | async">
+        <tr *ngFor="let user of users$ | async | filter:filterPhrase:filterKey">
           <td>{{ user.id }}</td>
           <td>{{ user.name }}</td>
           <td>{{ user.email }}</td>
@@ -24,7 +36,7 @@
               <button [routerLink]="['user/' + user.id]" class="btn btn-info">
                 <i class="fa fa-pencil"></i>
               </button>
-              <button class="btn btn-danger">
+              <button (click)="onDelete(user)" class="btn btn-danger">
                 <i class="fa fa-trash"></i>
               </button>
             </div>
