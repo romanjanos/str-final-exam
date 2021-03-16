@@ -15,6 +15,9 @@ export class UserListComponent implements OnInit {
   filterPhrase: string = '';
   filterKey: string = 'name';
 
+  sortby: string = 'id';
+  sorterDirection: number = 0;
+
   constructor(
     private userService: UserService,
   ) { }
@@ -27,6 +30,17 @@ export class UserListComponent implements OnInit {
       return;
     }
     this.userService.delete(user);
+  }
+
+  changeOrder(param: string): void {
+    if (this.sortby === '' || this.sortby != param) {
+      this.sorterDirection = 1;
+    }
+    if (this.sortby === param) {
+      if (this.sorterDirection === 1) this.sorterDirection = 2;
+      else this.sorterDirection = 1;
+    }
+    this.sortby = param;
   }
 
 }
