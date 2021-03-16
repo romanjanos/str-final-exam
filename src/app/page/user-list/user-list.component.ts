@@ -13,7 +13,7 @@ export class UserListComponent implements OnInit {
   users$: Observable<User[]> = this.userService.getAll();
 
   filterPhrase: string = '';
-  filterKey: string = 'name';
+  filterKey: string = 'Name';
 
   sortby: string = 'id';
   sorterDirection: number = 0;

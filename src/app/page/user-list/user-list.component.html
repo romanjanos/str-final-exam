@@ -1,12 +1,11 @@
 <button type="button" routerLink="/user/0" class="btn btn-success btn-block my-5">New User</button>
 
-<div class="card">
-  <div class="card-header card-header-info">
-      <div class="d-flex p-2 mb-3">
-          <input [(ngModel)]="filterPhrase" class="form-control" type="text"
-              placeholder="Keresés...">
-          <input [(ngModel)]="filterKey" class="form-control mr-3 px-3">
-      </div>
+<div class="row">
+  <div class="col-6">
+    <input [(ngModel)]="filterPhrase" class="form-control" type="text" placeholder="Search...">
+  </div>
+  <div class="col-6">
+    <input [(ngModel)]="filterKey" class="form-control">
   </div>
 </div>
 
