@@ -10,7 +10,12 @@
         class="form-control"
         type="text"
         name="name"
-        [(ngModel)]="user.name">
+        [(ngModel)]="user.name"
+        pattern=".{8,40}" 
+        required>
+      </div>
+      <div [hidden]="userForm.controls.name?.valid || userForm.controls.name?.pristine" class="alert alert-danger">
+        The name must be a minimum of 8 and a maximum of 40 characters.
       </div>
       <div class="form-group">
         <label>Email</label>
@@ -20,7 +25,12 @@
           class="form-control"
           type="text"
           name="email"
-          [(ngModel)]="user.email">
+          [(ngModel)]="user.email"
+          pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" 
+          required>
+        </div>
+        <div [hidden]="userForm.controls.email?.valid || userForm.controls.email?.pristine" class="alert alert-danger">
+          Please use email address format!
         </div>
         <div class="form-group">
           <label>Address</label>
@@ -29,7 +39,12 @@
           class="form-control"
           type="text"
           name="address"
-          [(ngModel)]="user.address">
+          [(ngModel)]="user.address"
+          pattern=".{8,100}" 
+          required>
+      </div>
+      <div [hidden]="userForm.controls.address?.valid || userForm.controls.address?.pristine" class="alert alert-danger">
+        The address must be a minimum of 8 and a maximum of 100 characters.
       </div>
       <div class="form-group">
         <label>Active</label>
@@ -39,7 +54,7 @@
           <option [ngValue]="false">inactive</option>
         </select>
       </div>
-      <button type="submit" class="btn btn-primary btn-block mt-5">
+      <button [disabled]="userForm.invalid" type="submit" class="btn btn-primary btn-block mt-5">
         <i class="fa fa-save"></i>
       </button>
     </form>
